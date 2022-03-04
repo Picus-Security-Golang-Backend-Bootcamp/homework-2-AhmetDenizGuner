@@ -40,8 +40,7 @@ In the other situations, program will print error messages and terminated.
 *   You can put the searchelper directory in src directory that is in `GOPATH` . In this case you need to update import statment.
 ```go
 package main
-import (
-	package main
+
 
 import (
 	"fmt"
@@ -52,7 +51,6 @@ import (
 	data "workspace/data"
 	"searchhelper"
 	model "workspace/models"
-)
 )
 ```
 
