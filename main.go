@@ -72,6 +72,7 @@ func main() {
 			return
 		}
 
+		//check book id added at the begginig
 		if !checkBookExist(bookId) {
 			return
 		}
@@ -87,6 +88,7 @@ func main() {
 
 	} else if strings.TrimSpace(args[1]) == "delete" {
 
+		//check argument count is ok
 		if len(args) != 3 {
 			fmt.Println("Buy komutu icin hatali sayida arguman girdiniz, lutfen 1 tam sayi giriniz!")
 			return
@@ -100,6 +102,7 @@ func main() {
 			return
 		}
 
+		//check book id added at the begginig
 		if !checkBookExist(bookId) {
 			return
 		}

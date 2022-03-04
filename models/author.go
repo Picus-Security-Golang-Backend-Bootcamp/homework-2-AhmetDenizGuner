@@ -4,6 +4,7 @@ type Author struct {
 	Name string
 }
 
+//struct constructor
 func NewAuthor(authorName string) *Author {
 
 	author := &Author{

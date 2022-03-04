@@ -12,13 +12,13 @@ type Book struct {
 	StockCode   int
 	ISBNnum     int
 	PageNum     int
-	StockNumber int
+	StockNumber int //Stock Quantity
 	IsDeleted   bool
 	Price       float64
 }
 
+//struct constructor
 func NewBook(id, stockCode, isbn_num, pageNum, stockNumber int, price float64, bookName, authorName string) *Book {
-	// bu fonksiyon içinde projenizde yaratacağınız struct'ın her zaman geçerli olduğunu garanti edebilirsiniz ve istediğiniz kuralı burada kontrol edebilirsiniz
 
 	author := NewAuthor(authorName)
 
@@ -37,13 +37,16 @@ func NewBook(id, stockCode, isbn_num, pageNum, stockNumber int, price float64, b
 	return book
 }
 
+//This function check some rules and decrease the stock quantity
 func (b *Book) Buy(count int) (string, error) {
 
+	//check book is deleted before
 	if b.IsDeleted {
 		err := errors.New("Bu kitap silinmistir lutfen baska kitap almayi deneyiniz!")
 		return "", err
 	}
 
+	//check ıs there enough book to buy
 	if count > b.StockNumber {
 		err := errors.New("Yeterli sayida kitap yoktur lutfen daha az miktarda deneyiniz!")
 		return "", err
@@ -58,8 +61,10 @@ type Deletable interface {
 	Delete()
 }
 
+//This function check some rules and set the isDeleted field as true
 func (b *Book) Delete() (string, error) {
 
+	//check book is deleted before
 	if b.IsDeleted {
 		err := errors.New("Bu kitap zaten silinmiş tekrar silemezsiniz!")
 		return "", err
