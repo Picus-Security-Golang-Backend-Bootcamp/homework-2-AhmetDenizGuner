@@ -58,7 +58,7 @@ func (b *Book) Buy(count int) (string, error) {
 }
 
 type Deletable interface {
-	Delete()
+	Delete() (string, error)
 }
 
 //This function check some rules and set the isDeleted field as true

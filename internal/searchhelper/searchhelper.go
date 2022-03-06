@@ -23,6 +23,11 @@ func Search(bookList []model.Book, searchItems []string) ([]model.Book, error) {
 	searchResult := []model.Book{}
 
 	for _, book := range bookList {
+
+		if book.IsDeleted {
+			continue
+		}
+
 		if strings.Contains(strings.ToLower(book.Name), strings.ToLower(searchItem)) {
 			searchResult = append(searchResult, book)
 		} else if strings.Contains(strings.ToLower(book.Author.Name), strings.ToLower(searchItem)) {
